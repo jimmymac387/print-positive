@@ -1,1 +1,1 @@
-web: gunicorn print_positive: app
+web: gunicorn app: app
