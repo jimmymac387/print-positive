@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TDI Capstone Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="wrapper-container">
+      <!-- Navbar -->
+      <!-- <header> -->
+        <nav class="navbar">
+          <div class="navbar-links">
+            <a href="#home">HOME</a>
+            <a href="#visualizations">VISUALIZATIONS</a>
+            <a href="#about">ABOUT</a>
+          </div>
+        </nav>
+      <!-- </header> -->
+
+      <!-- Articles -->
+      <section id="home" class="articles">
+        <h2>TOP NEWS</h2>
+        {% block articles %}{% endblock %}
+      </section>
+
+      <!-- Visualizations -->
+      <section id="visualizations" class="visualizations">
+        <h2>VISUALIZATIONS</h2>
+        {% block visualizations %}{% endblock %}
+      </section>
+
+      <!-- About -->
+      <section id="about" class="about">
+        <h2>ABOUT</h2>
+
+        <p>
+          This project was developed as part of an intensive eight-week
+          data science fellowship at The Data Incubator. The goal of the
+          project was to create an aggregator for positive news.
+        </p>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="citation">
+          <p>Copyright 2020, James MacCarthy</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

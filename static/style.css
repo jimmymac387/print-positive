@@ -1,0 +1,248 @@
+/* Gets rid of white space around content */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #EEEEEE;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* p {
+  font-family: 'Roboto', Arial, sans-serif;
+} */
+
+div.flex-container a {
+  text-decoration: none;
+  color: #4D4D4D;
+}
+
+section {
+  height: 100%;
+  padding-top: 30px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 30px;
+}
+
+/* section::before {
+  display: block;
+  position: relative;
+  top: -53px;
+  height: 53px;
+  content: " ";
+  visibility: hidden;
+} */
+
+/* Navbar */
+/* Add a background color to the top navigation */
+nav.navbar {
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  background-color: #E2E2E2;
+  overflow: hidden;
+  border-top: 3px solid #118E00;
+  z-index: 10000;
+}
+
+/* Style the links inside the navigation bar */
+nav.navbar a {
+  float: left;
+  height: 100%;
+  color: #4D4D4D;
+  text-align: center;
+  align-items: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Change the color of links on hover */
+nav.navbar a:hover {
+  background-color: #BDBDBD;  /* That's all folks! */
+}
+
+/* Add a color to the active/current link */
+nav.navbar a:active {
+  background-color: #FFB844;
+}
+
+div.navbar-links {
+  float: right;
+  padding-right: 5%;
+}
+
+/* Articles */
+section.articles {
+  margin-top: 53px;
+  /* background-color: #bfd8ff; */
+  min-height: 700px; /* Should really get screen size and set as that */
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: auto;
+  overflow: hidden;
+  height: auto;
+}
+
+.flex-container .news-item {
+  /* flex: 1; */
+  padding: 10px;
+  text-align: left;
+}
+
+.news-grid-container {
+  opacity: 0.6;
+  display: grid;
+  grid-template-columns: 320px 10px auto;
+  grid-template-rows: auto 40px 40px;
+  background-color: #E2E2E2;
+  padding: 20px;
+}
+
+.news-grid-container:hover {
+  opacity: 1.0;
+}
+
+div.news-grid-item.image > img {
+  max-width: 320px;
+  min-width: 160px;
+}
+
+.image {
+  display: flex;
+  grid-column: 1;
+  grid-row-start: 1;
+  grid-row-end: span 3;
+  align-items: center;
+}
+
+.headline {
+  /* grid-area: headline; */
+  display: flex;
+  align-items: center;
+  grid-column: 3;
+  grid-row: 1;
+  padding: 10px;
+  /* background-color: #23A711; */
+}
+
+.headline > h3 {
+  font-size: 2em;
+  padding: 0;
+  margin: 0;
+}
+
+.positivity {
+  /* grid-area: positivity; */
+  grid-column: 3;
+  grid-row: 2;
+  padding: 10px;
+  /* background-color: #30CA1B; */
+}
+
+.source {
+  /* grid-area: positivity; */
+  grid-column: 3;
+  grid-row: 3;
+  padding: 10px;
+  /* background-color: #30CA1B; */
+}
+
+/* Visualizations */
+section.visualizations {
+  background-color: #e0fcb6;
+  min-height: 700px; /* Should really get screen size and set as that */
+  height: 100%;
+}
+
+.viz-grid-container {
+  opacity: 0.6;
+  display: grid;
+  grid-template-columns: auto 10px auto;
+  grid-template-rows: 100px 100px 100px;
+  background-color: #E2E2E2;
+  padding: 20px;
+  /* margin-bottom: 15px; */
+}
+
+.viz-grid-container:hover {
+  opacity: 1.0;
+}
+
+.flex-container .viz-item {
+  flex: 1;
+  padding: 10px;
+  text-align: left;
+}
+
+.input {
+  /* grid-area: source; */
+  grid-column: 1;
+  grid-row-start: 1;
+  grid-row-end: span 3;
+  padding: 10px;
+  background-color: #BDBDBD; /* THat's all folks! */
+}
+
+.output {
+  /* grid-area: source; */
+  grid-column: 3;
+  grid-row-start: 1;
+  grid-row-end: span 3;
+  padding: 10px;
+  background-color: #BDBDBD; /* THat's all folks! */
+}
+
+/* About */
+section.about {
+  background-color: #E2E2E2;
+  padding: 20px;
+  margin: 50px;
+}
+
+/* Footer */
+footer {
+  left: 0;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  background-color: #E2E2E2;
+  color: #4D4D4D;
+}
+
+footer p {
+  padding: 14px 16px;
+  margin: 0;
+  color: #4D4D4D;
+  font-size: 18px;
+}
+
+footer a {
+  float: left;
+  color: #4D4D4D;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+div.citation {
+  float: left;
+  height: 100%;
+  padding-left: 5%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Site Wrapper */
+div.wrapper-container {
+  display: flex;
+  flex-direction: column;
+}

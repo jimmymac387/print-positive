@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block articles %}
+  <div class="flex-container">
+    {% for article in articles %}
+      <a href="{{ article['url'] }}">
+        <article class="news-item">
+          <div class="news-grid-container">
+            <!-- Image -->
+            <div class="news-grid-item image">
+              <img src="{{ url_for('static', filename='images/default.jpg') }}" alt="Default Image"
+                width="320" height="180">
+            </div>
+            <!-- Headline -->
+            <div class="news-grid-item headline">
+              <h3>{{ article['title'] }}</h3>
+            </div>
+            <!-- Positivity -->
+            <div class="news-grid-item positivity">
+              Score: {{ article['positivity'] }}
+            </div>
+            <!-- Source -->
+            <div class="news-grid-item source">
+              Source: {{ article['source'] }}
+            </div>
+
+          </div>
+        </article>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+{% block visualizations %}
+  <div class="flex-container">
+
+    <div class="viz-item">
+
+      <div class="viz-grid-container">
+
+        <div class="viz-grid-item input">
+          Input
+        </div>
+
+        <div class="viz-grid-item output">
+          Output
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
