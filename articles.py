@@ -1,13 +1,13 @@
 from flask import Blueprint, render_template
-from nltk.tokenize import word_tokenize
+# from nltk.tokenize import word_tokenize
 from . import funkytown as funky
 import pandas as pd
-import re
-from collections import Counter
-from wordcloud import WordCloud, STOPWORDS
-import matplotlib.pyplot as plt
+# import re
+# from collections import Counter
+# from wordcloud import WordCloud, STOPWORDS
+# import matplotlib.pyplot as plt
 # import seaborn as sns
-import io
+# import io
 
 bp = Blueprint('articles', __name__)
 
