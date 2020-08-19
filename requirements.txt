@@ -1,0 +1,8 @@
+django
+gunicorn
+django-heroku
+requests
+flask
+pandas
+bs4
+nltk
