@@ -9,12 +9,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # url = 'https://www.today.com/news/good-news'
-    # content_tag = None  # NBC Today - Good News does not have
-    # article_tag = 'article.tease-card__content'
-    # title_tag = 'span.tease-card__headline'
-    # category_tag = 'div.tease-card__picture > h2 > span'
-    # teaser_tag = None  # NBC Today - Good News does not have
+    url = 'https://www.today.com/news/good-news'
+    content_tag = None  # NBC Today - Good News does not have
+    article_tag = 'article.tease-card__content'
+    title_tag = 'span.tease-card__headline'
+    category_tag = 'div.tease-card__picture > h2 > span'
+    teaser_tag = None  # NBC Today - Good News does not have
 
     # page_content = funky.get_page_content(url, content_tag)
     #
