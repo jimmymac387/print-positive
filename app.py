@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template
-from . import funkytown as funky
+import funkytown as funky
 import pandas as pd
 
 
