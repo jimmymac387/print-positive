@@ -1,10 +1,13 @@
 # Features to add:
 # Pull images from article container
 # Pull article text (and take first 100 characters for teaser)
-
 from requests import get
 from bs4 import BeautifulSoup
+import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+
+nltk.download('vader_lexicon')
 
 
 def get_page_content(url, content_tag=None):
