@@ -34,4 +34,4 @@ def index():
     # sorted_top5 = sorted(top5, key=lambda x: x['positivity'], reverse=True)
 
     # return render_template('articles/index.html', articles=sorted_top5)
-    return 'hi'
+    return render_template('base.html')
