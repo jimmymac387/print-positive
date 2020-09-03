@@ -26,10 +26,13 @@ def index():
         )
         res += articles
 
-    
+    df = pd.DataFrame.from_dict(res)
 
-    df = pd.DataFrame.from_dict(today_good_articles)
-    positive_articles = df[df['positivity'] > 0.0]
+    positive_articles = df[df['positivity'] > 0.2]
+    neutral_articles = df[(df['positivity'] >= -0.2) &
+                          (df['positivity'] <= 0.2)]
+    negative_articles = df[df['positivity'] < -0.2]
+
     top5 = positive_articles[:5].to_dict(orient='records')
     sorted_top5 = sorted(top5, key=lambda x: x['positivity'], reverse=True)
 
