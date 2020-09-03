@@ -1,4 +1,4 @@
-# print-positive
+# print('positive')
 This project was developed as part of an intensive eight-week data science fellowship at The Data Incubator. The goal of the project was to create an aggregator for positive news.
 
 ### Problem Statement/Purpose
