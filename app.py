@@ -33,8 +33,8 @@ def index():
                           (df['positivity'] <= 0.2)]
     negative_articles = df[df['positivity'] < -0.2]
 
-    top5 = positive_articles[:5].to_dict(orient='records')
-    sorted_top5 = sorted(top5, key=lambda x: x['positivity'], reverse=True)
+    sorted_df = sorted(df, key=lambda x: x['positivity'], reverse=True)
+    top5 = sorted_df[:5].to_dict(orient='records')
 
-    return render_template('articles/index.html', articles=sorted_top5)
+    return render_template('articles/index.html', articles=top5)
     # return render_template('base.html')
