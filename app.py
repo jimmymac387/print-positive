@@ -27,6 +27,7 @@ def index():
         res += articles
 
     df = pd.DataFrame.from_dict(res)
+    df = df.drop_duplicates('title')
 
     positive_articles = df[df['positivity'] > 0.2]
     neutral_articles = df[(df['positivity'] >= -0.2) &
