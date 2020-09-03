@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template
 import funkytown as funky
 import pandas as pd
+import json
 
 
 app = Flask(__name__)
@@ -9,24 +10,23 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    url = 'https://www.today.com/news/good-news'
-    content_tag = None  # NBC Today - Good News does not have
-    article_tag = 'article.tease-card__content'
-    title_tag = 'span.tease-card__headline'
-    category_tag = 'div.tease-card__picture > h2 > span'
-    teaser_tag = None  # NBC Today - Good News does not have
+    with open('data_sources.json', 'r') as f:
+        data_sources = json.load(f)
 
-    page_content = funky.get_page_content(url, content_tag)
+    res = []
+    for source, values in data_sources.items():
+        articles = funky.pull_articles(
+            source=source,
+            url=values['url'],
+            content_tag=values['content_tag'],
+            article_tag=values['article_tag'],
+            title_tag=values['title_tag'],
+            category_tag=values['category_tag'],
+            teaser_tag=values['teaser_tag']
+        )
+        res += articles
 
-    today_good_articles = funky.pull_articles(
-        page_content,
-        article_tag,
-        title_tag,
-        category_tag,
-        teaser_tag
-    )
-
-    today_good_articles
+    
 
     df = pd.DataFrame.from_dict(today_good_articles)
     positive_articles = df[df['positivity'] > 0.0]
