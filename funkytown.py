@@ -70,7 +70,7 @@ def extract_info(article, title_tag, category_tag=None, teaser_tag=None):
     return (title, category, teaser, url)  # category, teaser, url)
 
 
-def fformat(articles, title_tag, category_tag=None, teaser_tag=None):
+def fformat(source, articles, title_tag, category_tag=None, teaser_tag=None):
     sia = SentimentIntensityAnalyzer()
     result = []
 
@@ -81,23 +81,27 @@ def fformat(articles, title_tag, category_tag=None, teaser_tag=None):
             category_tag,
             teaser_tag
         )
+        if title:
+            positivity = sia.polarity_scores(title)['compound']
 
-        positivity = sia.polarity_scores(title)['compound']
-
-        d = {
-            'title': title, 'url': url, 'category': category,
-            'teaser': teaser, 'positivity': positivity,
-            'source': 'NBC Today - Good News'
-        }
+            d = {
+                'title': title, 'url': url, 'category': category,
+                'teaser': teaser, 'positivity': positivity,
+                'source': source
+            }
 
         result.append(d)
 
     return result
 
 
-def pull_articles(page_content, article_tag, title_tag, category_tag=None,
-                  teaser_tag=None):
+def pull_articles(source, url, content_tag, article_tag, title_tag,
+                  category_tag=None, teaser_tag=None):
+    page_content = get_page_content(url, content_tag)
     raw_articles = page_content.select(article_tag)
-    articles = fformat(raw_articles, title_tag, category_tag, teaser_tag)
+    articles = fformat(
+        source, raw_articles, title_tag,
+        category_tag, teaser_tag
+    )
 
     return articles
