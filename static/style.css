@@ -7,6 +7,7 @@ html, body {
 body {
   background-color: #EEEEEE;
   font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1.2em;
 }
 
 /* p {
@@ -61,7 +62,8 @@ nav.navbar a {
 }
 
 img.wordcloud, img.compare {
-  max-width: 640px;
+  max-width: 100%;
+  height: auto;
 }
 
 figure {
@@ -218,8 +220,14 @@ section.visualizations {
 /* About */
 section.about {
   background-color: #E2E2E2;
-  padding: 20px;
-  margin: 50px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 /* Footer */
