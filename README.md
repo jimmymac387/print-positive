@@ -2,9 +2,9 @@
 This project was developed as part of an intensive eight-week data science fellowship at The Data Incubator. The goal of the project was to create an aggregator for positive news.
 
 ### Problem Statement/Purpose
-Consuming negative news on a daily basis can have a significant impact on our mental health. In response, news organizations are starting to recognize the benefits serving positive content to users, but they are not the only ones. Other companies like Starbucks, Apple, and Coca-Cola know that positive emotions toward a brand have greatly influence consumer loyalty and can lead to greater sales. The purpose of this project was to develop a tool that can be used by companies to highlight positive stories to help improve mental health and drive sales.
+Consuming negative news on a daily basis can have a significant impact on our mental health. In response, news organizations are starting to recognize the benefits serving positive content to users, but they are not the only ones. Other companies like Starbucks, Apple, and Coca-Cola know that positive emotions toward a brand greatly influence consumer loyalty and can lead to greater sales.
 
-Compare sentiment of various news organizations.
+The purpose of this project was to develop a tool that can be used by companies to highlight positive stories to both help improve mental health and drive sales. The web application developed for this project can also be used to identify the kinds of words used in positive stories as well as differences in sentiment offered by various news organizations.
 
 ### Data/Models Used
 The data used in this project comes from four sources--two neutral sources and two sources that specialize in providing positive and uplifting news stories.
@@ -14,8 +14,8 @@ Neutral Sources:
 - [NBC Today](https://www.today.com/)
 
 Positive Sources:
-- [NBC Today - Good News](https://www.today.com/news/good-news)
-- [Positive News](https://www.positive.news/)
+- [NBC Today (Good News)](https://www.today.com/news/good-news)
+- [Positive.News](https://www.positive.news/)
 
 Headlines are scraped from the front page of each news organization using BeautifulSoup and then passed through the Valence Aware Dictionary and sEntiment Reasoner (VADER) sentiment analysis tool available in the Natural Language ToolKit (NLTK) package to generate a normalized score between +1 (positive sentiment) and -1 (negative sentiment).
 

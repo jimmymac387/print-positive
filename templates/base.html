@@ -21,19 +21,138 @@
 
       <!-- Separate Articles and About pages -->
       <!-- Articles -->
-      <section id="home" class="articles">
+      <div id="home">
+      </div>
+      <div class="filler">
+      </div>
+      <section id="old_home" class="articles">
         <h2>TOP NEWS</h2>
         {% block articles %}{% endblock %}
       </section>
 
       <!-- About -->
-      <section id="about" class="about">
+      <div id="about">
+      </div>
+      <div class="filler">
+      </div>
+      <section id="old_about" class="about">
         <h2>ABOUT</h2>
 
         <p>
           This project was developed as part of an intensive eight-week
           data science fellowship at The Data Incubator. The goal of the
           project was to create an aggregator for positive news.
+        </p>
+        <h4>Problem Statement/Purpose</h4>
+        <p>
+          Consuming negative news on a daily basis can have a significant
+          impact on our mental health. In response, news organizations are
+          starting to recognize the benefits serving positive content to
+          users, but they are not the only ones. Other companies like
+          Starbucks, Apple, and Coca-Cola know that positive emotions toward
+          a brand greatly influence consumer loyalty and can lead to greater
+          sales.
+        </p>
+        <p>
+          The purpose of this project was to develop a tool that can be used
+          by companies to highlight positive stories to both help improve
+          mental health and drive sales. The web application developed for
+          this project can also be used to identify the kinds of words used
+          in positive stories as well as differences in sentiment offered by
+          various news organizations.
+        </p>
+        <h4>Data/Models Used</h4>
+        <p>
+          The data used in this project comes from four sources--two neutral
+          sources and two sources that specialize in providing positive and
+          uplifting news stories.
+        </p>
+        <p>Neutral Sources:</p>
+        <ul>
+          <li><a href="https://www.npr.org/">NPR</a></li>
+          <li><a href="https://www.today.com/">NBC Today</a></li>
+        </ul>
+        <p>Positive Sources:</p>
+        <ul>
+          <li><a href="https://www.today.com/news/good-news">NBC Today (Good News)</a></li>
+          <li><a href="https://www.positive.news">Positive.News</a></li>
+        </ul>
+        <p>
+          Headlines are scraped from the front page of each news organization
+          using BeautifulSoup and then passed through the Valence Aware
+          Dictionary and sEntiment Reasoner (VADER) sentiment analysis tool
+          available in the Natural Language ToolKit (NLTK) package to generate
+          a normalized score between +1 (positive sentiment) and -1
+          (negative sentiment).
+        </p>
+        <p>
+          These scores are used to sort the data and identify the top 10
+          positive stories, which are then served to the user in a Flask web
+          application. Data for the web application is generated each time
+          the page is reloaded to keep the content up-to-date.
+        </p>
+        <h4>Results</h4>
+        <p>In addition to providing links to positive news articles, the web
+          application also generates a word cloud to visualize words
+          associated with positive, neutral, and negative headlines as well
+          as a violin plot to visualize differences in sentiment from
+          different news sources.
+        </p>
+        <figure>
+          <img src="../static/images/positive_words_example.png"
+            alt="Positive word cloud" class="wordcloud">
+          <figcaption>
+            Example of most common words in positive news articles
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="../static/images/violins.png"
+            alt="Compare sentiment between news sources" class="compare">
+          <figcaption>
+            Example of comparison between news sources
+          </figcaption>
+        </figure>
+        <p>
+          The results show that certain words are correlated with positive
+          sentiment. Words like "help", "kids", and "friend" appear more
+          frequently in positive articles and may reflect a desire to stay
+          connected to family and friends.
+        </p>
+        <p>
+          The results also show that the VADER sentiment analysis tool
+          distinguishes between positive and negative articles fairly well.
+          The median scores for each of the neutral news sources was near 0
+          while both positive news sources had a median score above 0.
+        </p>
+        <p>
+          NPR headlines showed the greatest range in sentiment while
+          Positive.News demonstrated a much greater skew towards positive
+          headlines, even compared to the other positive news source. This is
+          not entirely surprising considering Positive.News considers
+          themselves "the first media organization in the world that is
+          dedicated to quality, independent reporting about what's going
+          right."
+        </p>
+        <p>
+          One of the advantages of using VADER for sentiment analysis is
+          that it does not require any training data; however, this can also
+          be a disadvantage for unique use cases like this project. For
+          example, while testing the web application, the VADER sentiment
+          analysis tool generated a positive score for a story from NPR
+          about <a href="https://www.npr.org/sections/coronavirus-live-updates/2020/08/16/903071127/less-than-a-week-after-starting-classes-unc-chapel-hill-reports-4-covid-19-clust">
+          university having to move classes online because several students
+          tested positive for the coronavirus</a>. Likewise, a story about
+          <a href="https://www.npr.org/2020/09/03/908878610/americans-increasingly-polarized-when-it-comes-to-racial-justice-protests-poll-f">
+          Americans becoming increasingly polarized over racial justice</a>
+          received the same score as a story about <a href="https://www.today.com/pets/kerith-golden-retriever-offers-comfort-firefighters-t190150">
+          therapy dog offering comfort to California firefighters</a>.
+          While these kinds of misclassifications were generally rare, a more
+          advanced sentiment analysis model specifically trained on news
+          headlines may offer classification improvements.
+        </p>
+        <p>
+          The next stage of this project will seek to improve the algorithm
+          used to classify news headlines as positive or negative.
         </p>
       </section>
 

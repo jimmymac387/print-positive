@@ -60,6 +60,14 @@ nav.navbar a {
   font-size: 18px;
 }
 
+img.wordcloud, img.compare {
+  max-width: 640px;
+}
+
+figure {
+  text-align: center;
+}
+
 /* Change the color of links on hover */
 nav.navbar a:hover {
   background-color: #BDBDBD;  /* That's all folks! */
@@ -100,7 +108,7 @@ section.articles {
 .news-grid-container {
   opacity: 0.6;
   display: grid;
-  grid-template-columns: 320px 10px auto;
+  grid-template-columns: 160px 10px auto;
   grid-template-rows: auto 40px 40px;
   background-color: #E2E2E2;
   padding: 20px;
@@ -110,9 +118,16 @@ section.articles {
   opacity: 1.0;
 }
 
+/* div.news-grid-item.image {
+  text-align: center;
+} */
+
 div.news-grid-item.image > img {
-  max-width: 320px;
-  min-width: 160px;
+  max-height: 160px;
+  max-width: 160px;
+  margin: auto;
+
+  /* min-width: 160px; */
 }
 
 .image {
