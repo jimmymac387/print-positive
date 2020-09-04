@@ -78,6 +78,7 @@ div.navbar-links {
 /* Articles */
 section.articles {
   margin-top: 53px;
+  /* background-color: #6FACB6; */
   /* background-color: #bfd8ff; */
   min-height: 700px; /* Should really get screen size and set as that */
 }

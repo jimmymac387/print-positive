@@ -6,3 +6,6 @@ flask
 pandas
 bs4
 nltk
+matplotlib
+seaborn
+wordcloud
