@@ -22,17 +22,22 @@ Headlines are scraped from the front page of each news organization using Beauti
 These scores are used to sort the data and identify the top 10 positive stories, which are then served to the user in a Flask web application. Data for the web application is generated each time the page is reloaded to keep the content up-to-date.
 
 ### Results
-- Static plots (word cloud; compare sentiment between positive news site and neutral)
-
-In addition to providing a link to the article, the web application also generates a word cloud to visualize words associated with positive, neutral, and negative headlines.
+In addition to providing links to positive news articles, the web application also generates a word cloud to visualize words associated with positive, neutral, and negative headlines as well as a violin plot to visualize differences in sentiment from different news sources.
 
 ![Positive Words](./static/images/positive_words_example.png)
 
 *Example of most common words in positive news articles*
 
+![Comparing News Sources](./static/images/violins.png)
 
-- Predicted sentiment on NPR returned lots of COVID articles (e.g., people had to leave school because too many COVID cases)
-- Base functionality provided by nltk is not sufficient for analyzing sentiment of news articles
+*Example of comparison between news sources*
 
-- Naural Language Toolkit (NLTK) used for sentiment analysis (VADER)
-- VADER (Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media.
+The results show that certain words are correlated with positive sentiment. Words like "help", "kids", and "friend" appear more frequently in positive articles and may reflect a desire to stay connected to family and friends.
+
+The results also show that the VADER sentiment analysis tool distinguishes between positive and negative articles fairly well. The median scores for each of the neutral news sources was near 0 while both positive news sources had a median score above 0.
+
+NPR headlines showed the greatest range in sentiment while Positive.News demonstrated a much greater skew towards positive headlines, even compared to the other positive news source. This is not entirely surprising considering Positive.News considers themselves "the first media organization in the world that is dedicated to quality, independent reporting about what's going right."
+
+One of the advantages of using VADER for sentiment analysis is that it does not require any training data; however, this can also be a disadvantage for unique use cases like this project. For example, while testing the web application, the VADER sentiment analysis tool generated a positive score for a story from NPR about [a university having to move classes online because several students tested positive for the coronavirus](https://www.npr.org/sections/coronavirus-live-updates/2020/08/16/903071127/less-than-a-week-after-starting-classes-unc-chapel-hill-reports-4-covid-19-clust). Likewise, a story about [Americans becoming increasingly polarized over racial justice](https://www.npr.org/2020/09/03/908878610/americans-increasingly-polarized-when-it-comes-to-racial-justice-protests-poll-f) received the same score as a story about [therapy dog offering comfort to California firefighters](https://www.today.com/pets/kerith-golden-retriever-offers-comfort-firefighters-t190150). While these kinds of misclassifications were generally rare, a more advanced sentiment analysis model specifically trained on news headlines may offer classification improvements.
+
+The next stage of this project will seek to improve the algorithm used to classify news headlines as positive or negative.
